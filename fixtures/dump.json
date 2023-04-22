@@ -1,0 +1,44 @@
+[
+{
+  "model": "gallery.photo",
+  "pk": 1,
+  "fields": {
+    "photo": "user_pic/IMG_8453.jpeg",
+    "caption": "Flowers id",
+    "created_at": "2023-04-22T08:26:17.441Z",
+    "author": 1,
+    "updated_at": "2023-04-22T11:52:28.584Z",
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "gallery.photo",
+  "pk": 4,
+  "fields": {
+    "photo": "photos/IMG_8453_OCe83ZM.jpeg",
+    "caption": "Flowers",
+    "created_at": "2023-04-22T09:54:53.037Z",
+    "author": 2,
+    "updated_at": "2023-04-22T09:54:53.037Z",
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "gallery.favorites",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "photo": 1
+  }
+},
+{
+  "model": "gallery.favorites",
+  "pk": 3,
+  "fields": {
+    "author": 1,
+    "photo": 4
+  }
+}
+]
