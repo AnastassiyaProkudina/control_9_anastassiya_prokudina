@@ -10,7 +10,7 @@ class PhotoForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["text"].widget.attrs.update({"placeholder": "Добавьте подпись..."})
+        self.fields["caption"].widget.attrs.update({"placeholder": "Добавьте подпись..."})
         for visible in self.visible_fields():
             visible.field.widget.attrs["class"] = "comment-box"
             visible.label = ""

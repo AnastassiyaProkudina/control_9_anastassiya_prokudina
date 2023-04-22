@@ -1,0 +1,52 @@
+{#{% load static %}#}
+{#{% load bootstrap_icons %}#}
+{#<div class="reaction-wrapper">#}
+{#    {% if photo in request.user.liked_photos.all %}#}
+{#                <form action="{% url 'dislike' photo.pk %}" method="photo">#}
+{#                    {% csrf_token %}#}
+{#        <button class="like-icon btn-dislike like-icon-{{ photo.id }}" type="submit">#}
+{#            <img src="{% static 'img/like-full.png' %}" class="icon" style="padding: 0;" alt="dislike">#}
+{#        </button>#}
+{#                </form>#}
+{#    {% else %}#}
+{#                <form action="{% url 'like' photo.pk %}" method="photo">#}
+{#                    {% csrf_token %}#}
+{#        <button type="submit" class="like-icon btn-like like-icon-{{ photo.id }}">#}
+{#            <img src="{% static 'img/like.PNG' %}" class="icon" alt="like">#}
+{#        </button>#}
+{#                </form>#}
+{#    {% endif %}#}
+{#    <img src="{% static 'img/comment.PNG' %}" class="icon" alt="">#}
+{#    <img src="{% static 'img/send.PNG' %}" class="icon" alt="">#}
+{#    <img src="{% static 'img/save.PNG' %}" class="save icon" alt="">#}
+{#</div>#}
+{#<p class="likes">{{ photo.user_likes.count }} отметок "Нравится"</p>#}
+{#<script type="text/javascript">#}
+{#    $(document).ready(function () {#}
+{#        $("body").on("click", ".btn-dislike", function (e) {#}
+{##}
+{#            e.preventDefault();#}
+{#            const id = $(this).data("id");#}
+{##}
+{#            $.ajax({#}
+{#                url: "http://127.0.0.1:8000/json-like/" + id,#}
+{#                type: 'DELETE',#}
+{#                dataType: 'json',#}
+{#                headers: {#}
+{#                    "X-CSRFTOKEN": "{{ csrf_token }}"#}
+{#                },#}
+{#                data: {#}
+{#                    id: id#}
+{#                },#}
+{#                success: function (response) {#}
+{#                    if (response.deleted === true) {#}
+{#                        $(".like-icon-" + id).removeClass("btn-dislike").addClass("btn-like");#}
+{#                    } else {#}
+{#                        $(".like-icon-" + id).removeClass("btn-like").addClass("btn-dislike");#}
+{#                    }#}
+{#                }#}
+{#            });#}
+{#            return false;#}
+{#        });#}
+{#    });#}
+{#</script>#}

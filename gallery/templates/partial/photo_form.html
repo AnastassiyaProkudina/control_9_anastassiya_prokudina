@@ -1,0 +1,5 @@
+{% csrf_token %}
+{% load static %}
+{% load django_bootstrap5 %}
+{{ form.as_p  }}
+<input type="submit" class="{{ button_class }}" value="Сохранить">

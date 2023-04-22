@@ -135,7 +135,7 @@ body {
 }
 
 .login-image {
-    background-image: url(../img/home-phones-2x.png);
+    background-image: url(../img/pngkit_photo-gallery-icon-png_5259012.png);
     background-size: 468px 634px;
     height: 581px;
     margin-bottom: 12px;
@@ -309,7 +309,7 @@ body {
     text-align: center;
 }
 
-.post {
+.photo {
     width: 100%;
     height: auto;
     background: #fff;
@@ -359,13 +359,13 @@ body {
     border: none;
 }
 
-.post-image {
+.photo-image {
     width: 100%;
     height: 500px;
     object-fit: cover;
 }
 
-.post-content {
+.photo-content {
     width: 100%;
     padding: 20px;
 }
@@ -385,7 +385,7 @@ body {
     margin-right: 10px;
 }
 
-.post-time {
+.photo-time {
     color: rgba(0, 0, 0, 0.5);
     font-size: 12px;
 }
@@ -585,7 +585,7 @@ body {
     color: rgba(0, 0, 0, 0.5)
 }
 
-.posts-card {
+.photos-card {
     max-height: 30%;
     max-width: 30%;
     border-radius: 0;
@@ -607,4 +607,24 @@ body {
 .like-icon {
     border: none;
     background: inherit;
+}
+.content {
+    display: flex;
+    position: absolute;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-size {
+    min-width: 33rem !important;
+    max-width: 33rem;
+}
+
+.form-box {
+    width: 500px;
+    position: absolute;
+    margin: 5rem 14%;
+    background-color: #bbb1ae;
+    padding: 30px;
 }

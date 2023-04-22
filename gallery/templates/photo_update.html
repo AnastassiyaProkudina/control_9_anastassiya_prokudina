@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Photo Update{% endblock %}
+{% block content %}
+    <div class="photo">
+    <div class="form-box">
+        <h1>Edit</h1>
+        <div class="form">
+            <form action="{% url 'photo_update' photo.pk %}" method="post" enctype="multipart/form-data">
+                {% include 'partial/photo_form.html' %}
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{#{% extends 'base.html' %}#}
+{#{% block title %}Home{% endblock %}#}
+{#{% block content %}#}
+{#    <section class="main">#}
+{#        <div class="wrapper">#}
+{#            <div class="left-col">#}
+{#                {% for photo in photos %}#}
+{#                    {% include 'partial/photo_card.html' %}#}
+{#                {% empty %}#}
+{#                    <h3>Нет фото</h3>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+{#{% endblock %}#}
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+    <div class="message-box">
+        <p class="msg">{{ message }}</p>
+    </div>
+    <div class="content">
+        <div class="card-group">
+            {% for photo in photos %}
+                {% include 'partial/photo_card.html' %}
+            {% endfor %}
+        </div>
+        <div class="paginator-box">
+            {% if is_paginated %}
+                {% include 'partial/pagination.html' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

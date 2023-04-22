@@ -1,0 +1,20 @@
+{% load static %}
+<a href="{% url 'photo_detail' photo.pk %}">
+<div class="photo">
+    <div class="card-size card m-4" style="width: 18rem;">
+        <img src="{{ photo.photo.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text">{{ photo.caption }}</p>
+            <p class="card-text">{{ photo.author }}</p>
+            <p class="card-text">{{ photo.created_at }}</p>
+            {% if request.user.pk == photo.author.pk %}
+                <a class="btn btn-light m-1" href="{% url 'photo_update' photo.pk %}" role="button">Edit</a>
+                <form action="{% url 'photo_confirm_delete' photo.pk %}" method="post" class="form-inline">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-dark" value="Delete">
+                </form>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</a>
