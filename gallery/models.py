@@ -29,3 +29,21 @@ class Photo(models.Model):
     deleted_at = models.DateTimeField(
         verbose_name="Date and time deleted at", null=True, default=None
     )
+
+
+class Favorites(models.Model):
+    author = models.ForeignKey(
+        verbose_name="Автор",
+        to=get_user_model(),
+        related_name="favorite",
+        on_delete=models.CASCADE,
+    )
+    photo = models.ForeignKey(
+        verbose_name="Публикация",
+        to="gallery.Photo",
+        related_name="favorite",
+        on_delete=models.CASCADE,
+    )
+
+
+

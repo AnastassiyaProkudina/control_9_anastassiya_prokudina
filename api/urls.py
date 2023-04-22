@@ -1,8 +1,12 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-from api.views import add, remove
+from api.views.favorites import FavoriteView
+
+
+router = routers.DefaultRouter()
+router.register('favorites', FavoriteView)
 
 urlpatterns = [
-    path('add/', add, name='add'),
-    path('remove/', remove, name='remove'),
+    path("", include(router.urls)),
 ]
