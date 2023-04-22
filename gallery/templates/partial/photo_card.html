@@ -7,7 +7,7 @@
             <p class="card-text">{{ photo.caption }}</p>
             <p class="card-text">{{ photo.author }}</p>
             <p class="card-text">{{ photo.created_at }}</p>
-            {% if request.user.pk == photo.author.pk %}
+            {% if request.user.pk == photo.author.pk or request.user.is_superuser is True %}
                 <a class="btn btn-light m-1" href="{% url 'photo_update' photo.pk %}" role="button">Edit</a>
                 <form action="{% url 'photo_confirm_delete' photo.pk %}" method="post" class="form-inline">
                         {% csrf_token %}

@@ -17,6 +17,7 @@ class PhotoDetail(DetailView):
         context["photos"] = photos
         return context
 
+
 class PhotoCreateView(LoginRequiredMixin, CreateView):
     model = Photo
     form_class = PhotoForm
@@ -39,7 +40,6 @@ class PhotoUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class PhotoDeleteView(LoginRequiredMixin, DeleteView):
-    template_name = 'photo_delete.html'
     model = Photo
     context_object_name = 'photo'
     success_url = reverse_lazy('index')
