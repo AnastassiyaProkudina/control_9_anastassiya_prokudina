@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 
 
 class LoginForm(forms.Form):
-
     username = forms.CharField(
         required=True,
         label="",
@@ -74,7 +73,6 @@ class CustomUserCreationForm(forms.ModelForm):
         user.set_password(self.cleaned_data.get("password"))
         if commit:
             user.save()
-            user.groups.add(2)
         return user
 
 

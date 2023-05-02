@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, DeleteView, TemplateView, UpdateView, DetailView
+from django.views.generic import CreateView, DeleteView, UpdateView, DetailView
 
 from gallery.forms import PhotoForm
 from gallery.models import Photo
@@ -41,5 +40,5 @@ class PhotoUpdateView(LoginRequiredMixin, UpdateView):
 
 class PhotoDeleteView(LoginRequiredMixin, DeleteView):
     model = Photo
-    context_object_name = 'photo'
-    success_url = reverse_lazy('index')
+    context_object_name = "photo"
+    success_url = reverse_lazy("index")

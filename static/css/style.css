@@ -42,7 +42,6 @@ body {
 }
 
 .navbar {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -67,25 +66,6 @@ body {
     height: 100%;
     margin-top: 5px;
 }
-
-.search-bx {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 25px;
-    background: rgb(239, 239, 239);
-    border: 1px solid #dfdfdf;
-    border-radius: 2px;
-    color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    text-transform: capitalize;
-}
-
-.search-bx::placeholder {
-    color: rgba(0, 0, 0, 0.5);
-}
-
 .nav-items {
     height: 22px;
     position: relative;
@@ -189,16 +169,6 @@ body {
     position: relative;
     flex-grow: 0;
     border-radius: 0;
-}
-
-.login-logo {
-    background-image: url(https://static.cdninstagram.com/rsrc.php/v3/yK/r/ATdtiLb2BQ9.png);
-    background-position: 0px 0px;
-    background-size: 176px 181px;
-    width: 175px;
-    height: 51px;
-    background-repeat: no-repeat;
-    display: inline-block;
 }
 
 .login-form-box {
@@ -617,8 +587,8 @@ body {
 }
 
 .card-size {
-    min-width: 33rem !important;
-    max-width: 33rem;
+    min-width: 18rem !important;
+    max-width: 18rem;
 }
 
 .form-box {
@@ -627,4 +597,20 @@ body {
     margin: 5rem 14%;
     background-color: #bbb1ae;
     padding: 30px;
+}
+
+.buttons-inline {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+.description {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.description span {
+    font-weight: bold;
+    margin-right: 10px;
 }

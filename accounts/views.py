@@ -12,11 +12,13 @@ from django.views.generic import (
 )
 
 from accounts.forms import LoginForm, CustomUserCreationForm
+from gallery.forms import PhotoForm
 
 
 class LoginView(TemplateView):
     template_name = "login.html"
     form = LoginForm
+    photo_form = PhotoForm
 
     def get(self, request, *args, **kwargs):
         form = self.form()
@@ -65,6 +67,10 @@ class AccountView(LoginRequiredMixin, DetailView):
     model = get_user_model()
     template_name = "user_detail.html"
     context_object_name = "user_obj"
+
+    def get_context_data(self, **kwargs):
+        kwargs["photo_form"] = PhotoForm()
+        return super().get_context_data(**kwargs)
 
 
 class UserChangeView(UpdateView):

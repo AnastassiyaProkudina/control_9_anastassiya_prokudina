@@ -1,22 +1,7 @@
-{#{% extends 'base.html' %}#}
-{#{% block title %}Home{% endblock %}#}
-{#{% block content %}#}
-{#    <section class="main">#}
-{#        <div class="wrapper">#}
-{#            <div class="left-col">#}
-{#                {% for photo in photos %}#}
-{#                    {% include 'partial/photo_card.html' %}#}
-{#                {% empty %}#}
-{#                    <h3>Нет фото</h3>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
-{#{% endblock %}#}
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home{% endblock %}
-{% block menu %}
-{% endblock %}
+{% block menu %}{% endblock %}
 {% block content %}
     <div class="message-box">
         <p class="msg">{{ message }}</p>
@@ -24,7 +9,7 @@
     <div class="content">
         <div class="card-group">
             {% for photo in photos %}
-                {% include 'partial/photo_card.html' %}
+                {% include 'partial/photo_card.html' with footer="cards" %}
             {% endfor %}
         </div>
         <div class="paginator-box">
@@ -33,4 +18,36 @@
             {% endif %}
         </div>
     </div>
+    {#    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>#}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").on("click", ".manage-favorite", function (e) {
+                e.preventDefault();
+                const id = $(this).data("id");
+
+                $.ajax({
+                    url: "http://127.0.0.1:8000/api/favorites/photo/" + id,
+                    type: 'PUT',
+                    dataType: 'json',
+                    headers: {
+                        "X-CSRFTOKEN": "{{ csrf_token }}"
+                    },
+                    data: {
+                        id: id,
+                    },
+                    error: function () {
+                        console.log('Произошла ошибка')
+                    },
+                    success: function (response) {
+                        if (response.favorites === "Yes") {
+                            $(".manage-favorite-" + id).text("Убрать из избранного").removeClass("btn-outline-success").addClass("btn-outline-danger");
+                        } else {
+                            $(".manage-favorite-" + id).text("Добавить в избранное").removeClass("btn-outline-danger").addClass("btn-outline-success");
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
 {% endblock %}

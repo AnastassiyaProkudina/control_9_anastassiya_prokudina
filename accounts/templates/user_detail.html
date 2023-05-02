@@ -40,8 +40,8 @@
     </section>
     <div class="container" style="margin-left: 9%">
         <div class="card-group">
-            {% for photo in user_obj.photos.all %}
-                {% include 'partial/photo_card.html' with footer='user_photos' %}
+            {% for photo in user_obj.user_favorites.all %}
+                {% include 'partial/photo_card.html' %}
             {% endfor %}
         </div>
     </div>

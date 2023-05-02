@@ -9,36 +9,54 @@
     "author": 1,
     "updated_at": "2023-04-22T11:52:28.584Z",
     "is_deleted": false,
-    "deleted_at": null
+    "deleted_at": null,
+    "user_favorites": [
+      2
+    ]
   }
 },
 {
   "model": "gallery.photo",
-  "pk": 4,
+  "pk": 7,
   "fields": {
-    "photo": "photos/IMG_8453_OCe83ZM.jpeg",
-    "caption": "Flowers",
-    "created_at": "2023-04-22T09:54:53.037Z",
+    "photo": "photos/IMG_9918.jpeg",
+    "caption": "Me",
+    "created_at": "2023-04-27T10:57:54.835Z",
     "author": 2,
-    "updated_at": "2023-04-22T09:54:53.037Z",
+    "updated_at": "2023-05-01T21:41:15.256Z",
     "is_deleted": false,
-    "deleted_at": null
+    "deleted_at": null,
+    "user_favorites": [
+      2
+    ]
   }
 },
 {
-  "model": "gallery.favorites",
-  "pk": 2,
+  "model": "gallery.photo",
+  "pk": 8,
   "fields": {
-    "author": 1,
-    "photo": 1
+    "photo": "photos/IMG_8784.jpeg",
+    "caption": "Tashkent",
+    "created_at": "2023-05-02T00:01:15.308Z",
+    "author": 2,
+    "updated_at": "2023-05-02T00:01:15.308Z",
+    "is_deleted": false,
+    "deleted_at": null,
+    "user_favorites": []
   }
 },
 {
-  "model": "gallery.favorites",
-  "pk": 3,
+  "model": "gallery.photo",
+  "pk": 9,
   "fields": {
-    "author": 1,
-    "photo": 4
+    "photo": "photos/IMG_9101.jpeg",
+    "caption": "Байла",
+    "created_at": "2023-05-02T00:01:47.909Z",
+    "author": 2,
+    "updated_at": "2023-05-02T00:01:47.909Z",
+    "is_deleted": false,
+    "deleted_at": null,
+    "user_favorites": []
   }
 }
 ]

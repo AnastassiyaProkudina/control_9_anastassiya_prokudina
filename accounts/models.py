@@ -3,9 +3,7 @@ from django.db import models
 
 
 class Account(AbstractUser):
-    email = models.EmailField(
-        verbose_name="Электронная почта", unique=True, blank=True
-    )
+    email = models.EmailField(verbose_name="Электронная почта", unique=True, blank=True)
 
     avatar = models.ImageField(
         null=True,

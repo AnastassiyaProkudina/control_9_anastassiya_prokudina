@@ -1,12 +1,8 @@
-from django.urls import path, include
-from rest_framework import routers
+from django.urls import path
 
-from api.views.favorites import FavoriteView
+from api.views import FavoriteView
 
-
-router = routers.DefaultRouter()
-router.register('favorites', FavoriteView)
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path("favorites/photo/<int:id>", FavoriteView.as_view(), name="favorite"),
 ]
