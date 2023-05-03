@@ -1,0 +1,5 @@
+<form class="comment-f d-flex" method="post" id="comment-form" data-id="{{ photo.id }}" data-username="{{ user.username }}">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit" value="comment" class="comment-btn">Опубликовать</button>
+</form>

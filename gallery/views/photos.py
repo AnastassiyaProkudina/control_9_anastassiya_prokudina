@@ -2,8 +2,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, DeleteView, UpdateView, DetailView
 
-from gallery.forms import PhotoForm
-from gallery.models import Photo
+from gallery.forms import PhotoForm, CommentForm
+from gallery.models import Photo, Comment
 
 
 class PhotoDetail(DetailView):
@@ -12,8 +12,9 @@ class PhotoDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        photos = Photo.objects.get(pk=self.object.pk)
-        context["photos"] = photos
+        comments = Comment.objects.filter(photo_id=self.object.pk).order_by('created_at')
+        context["comments"] = comments
+        context["comment_form"] = CommentForm()
         return context
 
 

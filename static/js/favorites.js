@@ -2,13 +2,14 @@ $(document).ready(function () {
     $("body").on("click", ".manage-favorite", function (e) {
         e.preventDefault();
         const id = $(this).data("id");
+        const token = $(this).data("token");
 
         $.ajax({
             url: "http://127.0.0.1:8000/api/favorites/photo/" + id,
             type: 'PUT',
             dataType: 'json',
             headers: {
-                "X-CSRFTOKEN": "{{ csrf_token }}"
+                "X-CSRFTOKEN": token
             },
             data: {
                 id: id,

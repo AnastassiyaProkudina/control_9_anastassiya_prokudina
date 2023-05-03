@@ -794,5 +794,41 @@
     "content_type": 10,
     "codename": "view_tokenproxy"
   }
+},
+{
+  "model": "auth.permission",
+  "pk": 85,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 11,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 86,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 11,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 87,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 11,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 88,
+  "fields": {
+    "name": "Can view comment",
+    "content_type": 11,
+    "codename": "view_comment"
+  }
 }
 ]

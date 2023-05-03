@@ -1,5 +1,6 @@
 {% load static %}
-<div class="card-size card me-2 mb-2">
+<div {% if footer == 'cards' %} class="card-size card me-2 mb-2" {% elif footer == 'card' %}
+                                class="card-size-photo card mb-4"{% endif %}>
     <a href="{% url 'photo_detail' photo.pk %}">
         <img src="{{ photo.photo.url }}" class="card-img-top" alt="...">
     </a>
@@ -11,10 +12,10 @@
         {% elif footer == 'card' and user.pk == photo.author.pk or user.is_superuser is True %}
             <div class="buttons-inline my-2">
                 <a class="btn btn-secondary me-2" href="{% url 'photo_update' photo.pk %}"
-                   role="button">Edit</a>
+                   role="button">Редактировать</a>
                 <form action="{% url 'photo_confirm_delete' photo.pk %}" method="post">
                     {% csrf_token %}
-                    <input type="submit" class="btn btn-dark me-2" value="Delete">
+                    <input type="submit" class="btn btn-dark me-2" value="Удалить">
                 </form>
             </div>
         {% endif %}
@@ -25,13 +26,32 @@
                     {% else %}
                     class="btn btn-outline-success manage-favorite manage-favorite-{{ photo.id }} my-2"
                     {% endif %}
-                    data-id={{ photo.id }}>
+                    data-id={{ photo.id }}
+                            data-token={{ csrf_token }}>
                 {% if photo in user.user_favorites.all %}
                     Убрать из избранного
                 {% else %}
                     Добавить в избранное
                 {% endif %}
             </button>
+        {% endif %}
+        <hr/>
+        {% if footer == 'card' %}
+            <div class="comments">
+                {% for comment in comments %}
+                    <div class="comment-{{ comment.id }}">
+                        <p class="description comment-inline"><span>{{ comment.author.username }}</span>{{ comment.text }}</p>
+                        {% if comment and comment.author == user or user.is_superuser is True %}
+                            <button type="button" class="btn-close  comment-delete" style="width: 3px; height: 3px; vertical-align: middle; text-align: end" aria-label="Закрыть" data-id={{ comment.id }} data-token={{ csrf_token }}></button>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if footer == 'card' and user.is_authenticated %}
+            <div class="comment-wrapper" style="border: none; padding: 0">
+                {% include 'partial/comment_form.html' %}
+            </div>
         {% endif %}
     </div>
 </div>

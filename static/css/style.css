@@ -591,6 +591,11 @@ body {
     max-width: 18rem;
 }
 
+.card-size-photo {
+    min-width: 50% !important;
+    max-width: 50%;
+}
+
 .form-box {
     width: 500px;
     position: absolute;
@@ -613,4 +618,10 @@ body {
 .description span {
     font-weight: bold;
     margin-right: 10px;
+}
+.comment-inline {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: space-between;
 }
